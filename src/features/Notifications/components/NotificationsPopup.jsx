@@ -4,9 +4,11 @@ import IconButton from "@mui/material/IconButton";
 import Popover from "@mui/material/Popover";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import NotificationsList from "./NotificationsList";
+import { useSelector } from "react-redux";
 
 export default function NotificationsPopup() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const systemNotifications = useSelector((state) => state.systemNotifications);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,7 +24,7 @@ export default function NotificationsPopup() {
   return (
     <>
       <IconButton color="inherit" aria-describedby={id} onClick={handleClick}>
-        <Badge badgeContent={4} color="warning">
+        <Badge badgeContent={systemNotifications.length} color="warning">
           <NotificationsIcon />
         </Badge>
       </IconButton>
@@ -36,7 +38,7 @@ export default function NotificationsPopup() {
           horizontal: "left",
         }}
       >
-        <NotificationsList/>
+        <NotificationsList />
       </Popover>
     </>
   );
