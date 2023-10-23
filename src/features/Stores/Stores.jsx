@@ -2,7 +2,9 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Title from "../ui/Title";
-import { useStores } from "./useStores";
+import { useStores } from "../useStores";
+import { useEffect } from "react";
+
 
 function StorePaper({ store }) {
   return (
@@ -22,7 +24,15 @@ function StorePaper({ store }) {
   );
 }
 export default function Stores() {
-  const { storesLoading, stores } = useStores();
+  const { displaySnackNotification} =useSnackNotification()
+  const { storesLoading, stores, fetchError, resetError } = useStores();
+
+useEffect(()=>{
+  if (fetchError)  {
+    displaySnackNotification({type: 'error', message: fetchError})
+    resetError()
+  }
+}, [fetchError])
 
   return (
     <>

@@ -14,9 +14,9 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
 
 import {restapiService, localService} from '../../services'
-import { useSnackNotification } from '../Notifications/hooks/useSnackNotification';
+import { useSnackNotification } from '../notifications/hooks/useSnackNotification';
 
-export default function Login() {
+export function Login() {
 
   const navigate = useNavigate();
   const { displaySnackNotification } = useSnackNotification();

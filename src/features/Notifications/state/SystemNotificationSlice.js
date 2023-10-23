@@ -5,6 +5,7 @@ const notificationInitialState = [
   {id:3, message: "Older system message 🔔", createdAt: '2023/10/17', isNew: true},
 ];
 
+
 const SystemNotificationsSlice = createSlice({
   name: "systemNotifications",
   initialState: notificationInitialState,

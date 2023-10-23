@@ -1,7 +1,8 @@
 import NoStores from "../ui/NoStores";
-import { useStores } from "../Stores/useStores";
+import { useStores } from "../stores/useStores";
 import Title from "../ui/Title";
-export default function Customers() {
+
+export function Customers() {
   const { stores, storesLoading } = useStores();
 
   return (

@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { defaultTheme } from "./defaultTheme";
 import AppDrawer from "./AppDrawer";
 import Copyright from "./Copyright";
-import NotificationsPopup from "../../Notifications/components/NotificationsPopup";
+import NotificationsPopup from "../../notifications/components/NotificationsPopup";
 
 const theme = createTheme(defaultTheme);
 const drawerWidth = 240;

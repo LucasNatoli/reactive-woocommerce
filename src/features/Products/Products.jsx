@@ -8,7 +8,7 @@ import NoStores from "../ui/NoStores";
 import Title from "../ui/Title";
 
 import { useProducts } from "./useProducts";
-import { useStores } from "../Stores/useStores";
+import { useStores } from "../stores/useStores";
 
 export default function Products() {
   const { stores, storesLoading } = useStores();

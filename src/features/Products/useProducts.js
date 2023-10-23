@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../../services/woocommerce";
-import { useStores } from "../Stores/useStores";
+import { useStores } from "../stores/useStores";
 
 export const useProducts = () => {
   const [products, setProducts] = useState([])

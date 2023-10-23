@@ -6,15 +6,22 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import Dashboard from "./features/Dashboard/Dashboard";
-import AppLayout from "./features/Layout/components/AppLayout";
-import Orders from "./features/Orders/Orders";
-import Products from "./features/Products/Products";
-import Stores from "./features/Stores/Stores";
-import StoreSetup from "./features/Stores/StoreSetup";
-import Login from "./features/Auth/Login";
-import Customers from "./features/Customers/Customers";
-import SnackNotification from "./features/Notifications/components/SnackNotification";
+import Dashboard from "./features/dashboard/Dashboard";
+import AppLayout from "./features/layout/components/AppLayout";
+import Orders from "./features/orders/Orders";
+import Products from "./features/products/Products";
+import { StoresList } from "./features/stores/components/StoresList";
+import { StorePage } from "./features/stores/components/StorePage";
+/* import Stores from "./features/Stores/Stores";
+import StoreSetup from "./features/Stores/StoreSetup"; */
+import {
+  Customers, 
+  Login,
+  SnackNotification,
+  StorePage,
+  StoresList
+} from "./features";
+
 
 function Root() {
   return (
@@ -48,15 +55,15 @@ function Root() {
           path="/stores"
           element={
             <AppLayout>
-              <Stores />
+              <StoresList />
             </AppLayout>
           }
         />
         <Route
-          path="/store-setup"
+          path="/stores/:storeId"
           element={
             <AppLayout>
-              <StoreSetup />
+              <StorePage />
             </AppLayout>
           }
         />

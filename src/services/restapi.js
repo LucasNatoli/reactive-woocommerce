@@ -3,9 +3,20 @@
 import { SHA3 } from 'sha3'
 import { localService } from './local'
 const API_END_POINT = "http://localhost:4000/v1"
+
 const END_POINTS = {
   LOGIN: API_END_POINT + "/accounts/login",
-  STORES: API_END_POINT + "/woo/stores"
+  STORES: API_END_POINT + "/woo/stores",
+  NOTIFICATIONS: API_END_POINT + '/system/notifications'
+}
+const HEADERS = {
+  APP_JSON: { 'Content-Type': 'application/json' },
+}
+
+const authHeader = () => {
+  var token = localService.getToken()
+  if (token) return { 'Authorization': 'Bearer ' + token}
+  return {}
 }
 
 async function login(email, password) {
@@ -14,7 +25,7 @@ async function login(email, password) {
   const password_hash = hash.digest('hex')
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: HEADERS.APP_JSON,
     body: JSON.stringify({ email, password: password_hash })
   };
   try {
@@ -30,10 +41,7 @@ async function login(email, password) {
 async function getStores() {
   const requestOptions = {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localService.getToken()
-    }
+    headers: HEADERS.APP_JSON, authHeader
   }
   try {
     let response = await fetch(END_POINTS.STORES, requestOptions);
@@ -45,9 +53,27 @@ async function getStores() {
   }
 }
 
+async function getNotifications() {
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localService.getToken()
+    }
+  }
+  try {
+    let response = await fetch(END_POINTS.NOTIFICATIONS, requestOptions);
+    let json = await response.json()
+    if (response.ok) return { success: true, data: json }
+    else return { success: false, data: json }
+  } catch (error) {
+    return { success: false, data: error };
+  }
+}
 export const restapiService = {
   login,
   getStores,
+  getNotifications,
 }
 
 

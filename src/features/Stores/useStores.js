@@ -5,6 +5,7 @@ export function useStores() {
 
   const [stores, setStores] = useState([])
   const [storesLoading, setStoresLoading] = useState(false)
+  const [fetchError, setFetchError] = useState()
 
   const fetchStores = () => {
     setStoresLoading(true)
@@ -15,17 +16,21 @@ export function useStores() {
           localService.setStores(response.data)
         }
         else {
-          //todo: warn error
+          setFetchError(response.data.message)
           setStores([])
         }
         setStoresLoading(false)
       },
       error => {
-        console.error(error)
+        setFetchError(error)
         setStoresLoading(false)
         setStores([])
       }
     )
+  }
+
+  const resetError = () => {
+    setFetchError()
   }
 
   useEffect(() => {
@@ -34,5 +39,5 @@ export function useStores() {
     else fetchStores()
   }, [])
 
-  return { storesLoading, stores }
+  return { storesLoading, stores, fetchError, resetError }
 }
