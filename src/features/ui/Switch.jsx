@@ -1,15 +1,15 @@
-import Switch from "@mui/material/Switch";
+import MuiSwitch from "@mui/material/Switch";
 import { useState } from "react";
 
-export default function SwitchMode() {
-  const [checked, setChecked] = useState(true);
+export default function Switch({on = true}) {
+  const [checked, setChecked] = useState(on);
 
   function handleToggle() {
     setChecked(!checked);
   }
 
   return (
-    <Switch
+    <MuiSwitch
       edge="end"
       onChange={handleToggle}
       checked={checked}
