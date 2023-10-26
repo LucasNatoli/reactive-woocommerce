@@ -5,6 +5,15 @@ import { Title } from "../../ui/Title";
 import { useParams } from "react-router-dom";
 import { useGetStoreQuery } from "../../api/apiSlice";
 import { useSnackNotification } from "../../notifications/hooks/useSnackNotification";
+import { Typography } from "@mui/material";
+import Switch from "../../ui/Switch";
+
+const paperStyle = {
+  p: 2,
+  display: "flex",
+  flexDirection: "column",
+  //borderRadius: '9px'
+};
 
 export function StorePage() {
   const { storeId } = useParams();
@@ -26,9 +35,11 @@ export function StorePage() {
     <>
       {isFetching && <h3>Cargando</h3>}
       {isSuccess && (
-        <Paper>
+        <Paper sx={paperStyle}>
           <Title>{store.name}</Title>
-          <h2>{store.url}</h2>
+          <Typography variant="body">Url: {store.url}</Typography>
+          <Typography variant="body">Activa: <Switch on= {store.state ? true: false} /></Typography>
+          
         </Paper>
       )}
     </>

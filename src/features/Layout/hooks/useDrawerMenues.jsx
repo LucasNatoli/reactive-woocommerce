@@ -3,7 +3,6 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import PeopleIcon from "@mui/icons-material/People";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ReceiptIcon from "@mui/icons-material/Receipt";
-import BarChartIcon from "@mui/icons-material/BarChart";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 
 const navRoutes = [
@@ -14,7 +13,7 @@ const navRoutes = [
     icon: <DashboardIcon />,
   },
   {
-    label: "Ordenes",
+    label: "Pedidos",
     route: "/orders",
     key: "orders",
     icon: <ReceiptIcon />,

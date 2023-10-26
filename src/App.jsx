@@ -16,7 +16,8 @@ import {
   ProductsPage,
   SnackNotification,
   StorePage,
-  StoresList
+  StoresList,
+  OrdersPage
 } from "./features";
 
 
@@ -36,7 +37,7 @@ function Root() {
           path="/orders"
           element={
             <AppLayout>
-              <Orders />
+              <OrdersPage />
             </AppLayout>
           }
         />

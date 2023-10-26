@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import Paper from "@mui/material/Paper";
 import NoStores from "../../ui/NoStores";
 import { Title } from "../../ui/Title";
 
@@ -23,12 +24,26 @@ export function ProductsPage() {
       displaySnackNotification({ type: "error", message: error.error });
   }, [isError]);
 
+  const paperStyle = {
+    p: 2,
+    display: "flex",
+    flexDirection: "column",
+    //borderRadius: '9px'
+  };
+
   return (
-    <>
+    <Paper sx={paperStyle}>
       <Title>Productos</Title>
       {isLoading && <h3>Cargando...</h3>}
       {isSuccess && stores.length === 0 && <NoStores />}
-      {isSuccess && stores.length>0 && <ProductsTable store={stores[0]} />}
-    </>
+      {isSuccess &&
+        stores.length > 0 &&
+        stores.map((store) => (
+          <Paper key={store.id} sx={{...paperStyle, marginBottom: 3, paddingBottom: 5}} >
+            <Title>{store.name}</Title>
+            <ProductsTable store={store} />
+          </Paper>
+        ))}
+    </Paper>
   );
 }
