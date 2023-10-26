@@ -9,7 +9,7 @@ function getUser() {
 // return the token from the session storage
 function getToken() {
   let user = getUser();
-  return user.token || null;
+  return user?.token || null;
 }
 
 // remove the token and user from the session storage

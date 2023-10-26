@@ -34,7 +34,6 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-
 export default function AppLayout(props) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
@@ -77,8 +76,7 @@ export default function AppLayout(props) {
           </Toolbar>
         </AppBar>
 
-<AppDrawer open={open} toggleDrawer={toggleDrawer} />
-
+        <AppDrawer open={open} toggleDrawer={toggleDrawer} />
 
         <Box
           component="main"
@@ -93,7 +91,7 @@ export default function AppLayout(props) {
           }}
         >
           <Toolbar />
-          <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             {props.children}
             <Copyright sx={{ pt: 4 }} />
           </Container>

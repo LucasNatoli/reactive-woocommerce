@@ -1,19 +1,36 @@
-import React from "react";
+import { useEffect } from "react";
 import Paper from "@mui/material/Paper";
-import Title from "../../ui/Title";
+import { Title } from "../../ui/Title";
 
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectStoreById } from "../state/storesSlice";
+import { useGetStoreQuery } from "../../api/apiSlice";
+import { useSnackNotification } from "../../notifications/hooks/useSnackNotification";
 
 export function StorePage() {
   const { storeId } = useParams();
-  const store = useSelector((state) => selectStoreById(state, storeId));
+  const {
+    data: store,
+    isFetching,
+    isSuccess,
+    isError,
+    error,
+  } = useGetStoreQuery(storeId);
+  const { displaySnackNotification } = useSnackNotification();
+
+  useEffect(() => {
+    isError &&
+      displaySnackNotification({ type: "error", message: error.error });
+  }, [isError]);
 
   return (
-    <Paper>
-      <Title>{store.name}</Title>
-      <h2>{store.url}</h2>
-    </Paper>
+    <>
+      {isFetching && <h3>Cargando</h3>}
+      {isSuccess && (
+        <Paper>
+          <Title>{store.name}</Title>
+          <h2>{store.url}</h2>
+        </Paper>
+      )}
+    </>
   );
 }

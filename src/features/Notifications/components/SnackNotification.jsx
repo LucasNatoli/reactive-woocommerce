@@ -3,7 +3,7 @@ import { useSnackNotification } from "../hooks/useSnackNotification";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from '@mui/material/Alert'
 
-export default function SnackNotification  ()  {
+export function SnackNotification  ()  {
   const notification = useSelector((state) => state.notification);
   const { clearNotification } = useSnackNotification();
 

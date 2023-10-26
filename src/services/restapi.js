@@ -38,20 +38,6 @@ async function login(email, password) {
   }
 }
 
-async function getStores() {
-  const requestOptions = {
-    method: 'GET',
-    headers: HEADERS.APP_JSON, authHeader
-  }
-  try {
-    let response = await fetch(END_POINTS.STORES, requestOptions);
-    let json = await response.json()
-    if (response.ok) return { success: true, data: json }
-    else return { success: false, data: json }
-  } catch (error) {
-    return { success: false, data: error };
-  }
-}
 
 async function getNotifications() {
   const requestOptions = {
@@ -72,7 +58,6 @@ async function getNotifications() {
 }
 export const restapiService = {
   login,
-  getStores,
   getNotifications,
 }
 

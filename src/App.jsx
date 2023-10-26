@@ -9,9 +9,7 @@ import { store } from "./store";
 import Dashboard from "./features/dashboard/Dashboard";
 import AppLayout from "./features/layout/components/AppLayout";
 import Orders from "./features/orders/Orders";
-import Products from "./features/products/Products";
-import { StoresList } from "./features/stores/components/StoresList";
-import { StorePage } from "./features/stores/components/StorePage";
+import ProductsPage from "./features/products/ProductsPage";
 /* import Stores from "./features/Stores/Stores";
 import StoreSetup from "./features/Stores/StoreSetup"; */
 import {
@@ -21,6 +19,7 @@ import {
   StorePage,
   StoresList
 } from "./features";
+import { AddStoreForm } from "./features/stores/components/AddStoreForm";
 
 
 function Root() {
@@ -47,7 +46,7 @@ function Root() {
           path="/products"
           element={
             <AppLayout>
-              <Products />
+              <ProductsPage />
             </AppLayout>
           }
         />
@@ -64,6 +63,14 @@ function Root() {
           element={
             <AppLayout>
               <StorePage />
+            </AppLayout>
+          }
+        />
+        <Route
+          path="/stores/new"
+          element={
+            <AppLayout>
+              <AddStoreForm />
             </AppLayout>
           }
         />

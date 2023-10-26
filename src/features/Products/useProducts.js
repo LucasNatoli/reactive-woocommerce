@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../../services/woocommerce";
-import { useStores } from "../stores/useStores";
 
-export const useProducts = () => {
+export const useProducts = ({stores}) => {
   const [products, setProducts] = useState([])
   const [prodsLoading, setProdsLoading] = useState(false)
   const [currStore, setCurrStore] = useState(0)
-  const {stores} = useStores()
 
   function setStore(index) {
     setCurrStore(index)
