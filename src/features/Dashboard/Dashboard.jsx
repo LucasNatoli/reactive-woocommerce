@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
-import OrdersCard from "../orders/OrdersCard";
+import OrdersCard from "../orders/components/OrdersCard";
 const paperStyle = {
   p: 2,
   display: "flex",
