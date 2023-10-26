@@ -28,8 +28,7 @@ export default function ProductsPage() {
       <Title>Productos</Title>
       {isLoading && <h3>Cargando...</h3>}
       {isSuccess && stores.length === 0 && <NoStores />}
-      {isSuccess && <ProductsTable store={stores[0]} />}
-      {isSuccess && <p>{stores[0].name}</p>}
+      {isSuccess && stores.length>0 && <ProductsTable store={stores[0]} />}
     </>
   );
 }
