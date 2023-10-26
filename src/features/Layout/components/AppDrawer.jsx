@@ -65,10 +65,7 @@ export default function AppDrawer({ open, toggleDrawer }) {
         </ListItem>
         <ListItem key="logout" disablePadding>
           <ListItemButton
-            onClick={() => {
-              debugger;
-              restapiService.logout().then(_=>navigate("/"));
-            }}
+            onClick={() => restapiService.logout().then((_) => navigate("/"))}
           >
             <ListItemIcon>
               <LogoutIcon />
