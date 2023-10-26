@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
-import NoStores from "../ui/NoStores";
-import { Title } from "../ui/Title";
+import NoStores from "../../ui/NoStores";
+import { Title } from "../../ui/Title";
 
-import { useSnackNotification } from "../notifications/hooks/useSnackNotification";
-import { useGetStoresQuery } from "../api/apiSlice";
+import { useSnackNotification } from "../../notifications/hooks/useSnackNotification";
+import { useGetStoresQuery } from "../../api/apiSlice";
 import { ProductsTable } from "./ProductsTable";
 
-export default function ProductsPage() {
+export function ProductsPage() {
   const { displaySnackNotification } = useSnackNotification();
 
   const {

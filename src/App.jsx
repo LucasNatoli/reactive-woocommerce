@@ -3,7 +3,6 @@ import { store } from "./store";
 import Dashboard from "./features/dashboard/Dashboard";
 import AppLayout from "./features/layout/components/AppLayout";
 import Orders from "./features/orders/Orders";
-import ProductsPage from "./features/products/ProductsPage";
 import { AddStoreForm } from "./features/stores/components/AddStoreForm";
 import {
   createBrowserRouter,
@@ -14,6 +13,7 @@ import {
 import {
   Customers, 
   Login,
+  ProductsPage,
   SnackNotification,
   StorePage,
   StoresList
