@@ -15,6 +15,11 @@ export default function Copyright(props) {
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
+      <br/>
+      {"Powered by 🚀 "}
+      <Link color="inherit" href="https://elhosting.cloud/" target="_blank">
+        elhosting.cloud
+      </Link>
     </Typography>
   );
 }
