@@ -70,7 +70,7 @@ export default function AppLayout(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Reactive Woo
+              🚀 xiKi
             </Typography>
             <NotificationsPopup />
           </Toolbar>
