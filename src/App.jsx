@@ -1,17 +1,16 @@
-import {
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Dashboard from "./features/dashboard/Dashboard";
 import AppLayout from "./features/layout/components/AppLayout";
 import Orders from "./features/orders/Orders";
 import ProductsPage from "./features/products/ProductsPage";
-/* import Stores from "./features/Stores/Stores";
-import StoreSetup from "./features/Stores/StoreSetup"; */
+import { AddStoreForm } from "./features/stores/components/AddStoreForm";
+import {
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 import {
   Customers, 
   Login,
@@ -19,7 +18,6 @@ import {
   StorePage,
   StoresList
 } from "./features";
-import { AddStoreForm } from "./features/stores/components/AddStoreForm";
 
 
 function Root() {
