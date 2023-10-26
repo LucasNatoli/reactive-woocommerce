@@ -2,7 +2,8 @@
 
 import { SHA3 } from 'sha3'
 import { localService } from './local'
-const API_END_POINT = "http://localhost:4000/v1"
+//const API_END_POINT = "http://localhost:4000/v1"
+const API_END_POINT = "https://xiki.elhosting.cloud/rest/v1"
 
 const END_POINTS = {
   LOGIN: API_END_POINT + "/accounts/login",
@@ -38,6 +39,11 @@ async function login(email, password) {
   }
 }
 
+function logout() {
+  // remove user from session storage
+  sessionStorage.clear()
+  return Promise.resolve()
+}
 
 async function getNotifications() {
   const requestOptions = {
@@ -58,6 +64,7 @@ async function getNotifications() {
 }
 export const restapiService = {
   login,
+  logout,
   getNotifications,
 }
 

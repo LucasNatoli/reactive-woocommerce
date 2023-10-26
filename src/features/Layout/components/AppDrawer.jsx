@@ -6,13 +6,15 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Toolbar from "@mui/material/Toolbar";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { useNavigate } from "react-router-dom";
 import { useDrawerMenues } from "../hooks/useDrawerMenues";
-import SwitchMode from "./SwitchMode";
+import Switch from "../../ui/Switch";
 import { Drawer } from "./Drawer";
+import { restapiService } from "../../../services";
 
 export default function AppDrawer({ open, toggleDrawer }) {
   const { navRoutes, reportRoutes } = useDrawerMenues();
@@ -58,7 +60,20 @@ export default function AppDrawer({ open, toggleDrawer }) {
               <Brightness4Icon />
             </ListItemIcon>
             <ListItemText primary="Darkmode" />
-            <SwitchMode />
+            <Switch />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key="logout" disablePadding>
+          <ListItemButton
+            onClick={() => {
+              debugger;
+              restapiService.logout().then(_=>navigate("/"));
+            }}
+          >
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Salir" />
           </ListItemButton>
         </ListItem>
       </List>
