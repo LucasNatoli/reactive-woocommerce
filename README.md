@@ -5,7 +5,7 @@ App de integracion de tiendas WooCommerce
 ## Dominio
 
 ### Tienda
-Representa cada instancia de WooCommerse a la que se conecta la app o es 
+Representa cada instancia de WooCommerce a la que se conecta la app o es 
 escuchada por la restapi.
 
 #### Attributos
@@ -19,20 +19,7 @@ que se almacena la restapi.
 + status
 + statistics: informacion estadistica de la tienda
 
-#### Notificacion del sistema.
-
-Mensaje que genera el sistema cuando ocurren eventos en cualquiera de las 
-tiendas de la app. Se envian a los usuarios que correspondan a la 
-configuración de la app.
-
-## Notificaciones del Sistema (SystemNotifications)
-
-Una vez logueado el usuario. Al realizarse el primer render de la Barra de App 
-se cargan las notificaciones pendientes del sevidor (restapi) y se inicia la 
-escucha del webhook para recibir nuevas notificaciones.
-
-Los webhooks de cada tienda de la app generan por defecto una notificación del 
-sistema.
+### Suscripciones
 
 Las notificaciones pueden accederse mediante el icono de campana que muestra un
 popup con las últimas notificaciones no leidas. Tambien mediante una pagina de
