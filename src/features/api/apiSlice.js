@@ -10,7 +10,8 @@ const authHeader = () => {
 export const apiSlice = createApi({
 
   reducerPath: 'api', // The cache reducer expects to be added at `state.api` (already default - this is optional)
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/v1/woo' }),
+  //baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/v1/woo' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://xiki.elhosting.cloud/rest/v1/woo' }),
   tagTypes: ["Stores"],
   endpoints: builder => ({
     getStores: builder.query({

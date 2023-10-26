@@ -17,10 +17,26 @@ export const wooSlice = createApi({
         headers: authHeader(token),
       }},
     }),
+    getOrders: builder.query({
+      query: ({url, token}) => {
+        return {
+        url: url + '/wp-json/wc/v3/orders',
+        headers: authHeader(token),
+      }},
+    }),
+    getCustomers: builder.query({
+      query: ({url, token}) => {
+        return {
+        url: url + '/wp-json/wc/v3/customers',
+        headers: authHeader(token),
+      }},
+    }),
   })
 })
 
 // Export the auto-generated hooks for the endpoints
 export const {
   useGetProductsQuery,
+  useGetOrdersQuery, 
+  useGetCustomersQuery,
 } = wooSlice
