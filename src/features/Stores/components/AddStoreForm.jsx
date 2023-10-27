@@ -10,20 +10,20 @@ export const AddStoreForm = () => {
   const [url, setUrl] = useState("");
   const [clientKey, setClientKey] = useState("");
   const [secretKey, setSecretKey] = useState("");
-
   const [addNewStore, { isLoading }] = useAddStoreMutation();
-
+  
   const onNameChanged = (e) => setName(e.target.value);
   const onUrlChanged = (e) => setUrl(e.target.value);
   const onClientKeyChanged = (e) => setClientKey(e.target.value);
   const onSecretKeyChanged = (e) => setSecretKey(e.target.value);
-
+  
   const canSave =
-    Boolean(name) && Boolean(url) && Boolean(clientKey) && Boolean(secretKey);
-
+  Boolean(name) && Boolean(url) && Boolean(clientKey) && Boolean(secretKey);
+  
   async function onSaveStoreClicked() {
+    const basicAuth = btoa(clientKey+":"+secretKey);
     try {
-      await addNewStore({ name, url, clientKey, secretKey }).unwrap();
+      await addNewStore({ name, url, basicAuth }).unwrap();
       setName("");
       setUrl("");
       setClientKey("");
