@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import Paper from '@mui/material/Paper'
+import Paper from "@mui/material/Paper";
 import NoStores from "../../ui/NoStores";
 import { Title } from "../../ui/Title";
 
@@ -35,7 +35,16 @@ export function OrdersPage() {
       <Title>Pedidos</Title>
       {isLoading && <h3>Cargando...</h3>}
       {isSuccess && stores.length === 0 && <NoStores />}
-      {isSuccess && stores.length>0 && <OrdersTable store={stores[0]} />}
+      {isSuccess &&
+        stores.map((store) => (
+          <Paper
+            key={store.id}
+            sx={{ ...paperStyle, marginBottom: 3, paddingBottom: 5 }}
+          >
+            <Title>{store.name}</Title>
+            <OrdersTable store={store} />
+          </Paper>
+        ))}
     </Paper>
   );
 }
