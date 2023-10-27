@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Dashboard from "./features/dashboard/Dashboard";
 import AppLayout from "./features/layout/components/AppLayout";
-import Orders from "./features/orders/Orders";
 import { AddStoreForm } from "./features/stores/components/AddStoreForm";
 import {
   createBrowserRouter,
@@ -11,7 +10,7 @@ import {
   Routes,
 } from "react-router-dom";
 import {
-  Customers, 
+  CustomersPage, 
   Login,
   ProductsPage,
   SnackNotification,
@@ -77,7 +76,7 @@ function Root() {
           path="/customers"
           element={
             <AppLayout>
-              <Customers />
+              <CustomersPage />
             </AppLayout>
           }
         />
